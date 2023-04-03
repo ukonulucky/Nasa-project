@@ -1,0 +1,17 @@
+{
+  "name": "nasa-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+  "installl-sever-dependency":"cd server && npm install",
+  "installl-client-dependency":"cd client && npm install",
+  "start-server":"cd server && npm run start",
+  "start-client":"cd client && npm run start",
+  "start-nasa-app":"npm run start-server & npm run start-client",
+  "deploy-app": "npm run build --prefix client && npm run deploy-server --prefix server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
