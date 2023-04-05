@@ -24,10 +24,11 @@ const Upcoming = props => {
     classes,
     abortLaunch,
   } = props;
-
+console.log("this are the launches", launches)
   const tableBody = useMemo(() => {
     return launches?.filter((launch) => launch.upcoming)
       .map((launch) => {
+        console.log("this is the upcoming launch from map", launch)
         return <tr key={String(launch.flightNumber)}>
           <td>
             <Clickable style={{color:"red"}}>

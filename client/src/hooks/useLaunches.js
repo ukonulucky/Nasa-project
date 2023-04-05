@@ -12,8 +12,12 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
 
   const getLaunches = useCallback(async () => {
     const fetchedLaunches = await httpGetLaunches();
+  console.log("this are the response", fetchedLaunches)
+  if(fetchedLaunches){
+  console.log("items has been populated")
+  }
     saveLaunches(fetchedLaunches);
-  }, []);
+  }, [httpGetLaunches]);
 
   useEffect(() => {
     getLaunches();
@@ -33,10 +37,11 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
       rocket,
       target,
     });
-
+ 
     const success = response.ok;
     if (success) {
       getLaunches();
+      console.log("this is the response from the launch created",launches)
       setTimeout(() => {
         setPendingLaunch(false);
         onSuccessSound();
