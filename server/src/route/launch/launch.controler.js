@@ -9,7 +9,7 @@ function getAllLaunches(req, res) {
 function addNewLaunch(req, res) {
   const { launchDate, rocket, target, mission } = req.body;
   let newDate = new Date(launchDate).toDateString();
-  console.log(newDate);
+
   if (!launchDate || !rocket || !target || !mission) {
     return res.status(400).json({
       errorMessage: "launch missing credentials is required",
@@ -25,8 +25,7 @@ let  launch = addLaunch();
 const newLaunch = {...launch, "mission":mission,  "launchDate":newDate,   "rocket":rocket, "target":target}
 
    launches.set(launch.flightNumber, newLaunch )
-   console.log(launches)
-  res.status(201).json(launch)
+  res.status(201).json(newLaunch)
 }
 
 function abortLaunch(req, res) {
